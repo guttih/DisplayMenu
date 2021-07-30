@@ -1,0 +1,20 @@
+#######################################
+# Syntax Coloring Map For Arduino_JSON
+####################################### 
+# Class
+#######################################
+
+DisplayMenu KEYWORD1
+DisplayPage KEYWORD1
+DisplayButton   KEYWORD1
+DisplayLabel    KEYWORD1
+
+#######################################
+# Methods and Functions 
+#######################################	
+
+update	KEYWORD2
+
+#######################################
+# Constants
+#######################################
