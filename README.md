@@ -6,8 +6,7 @@ This library helps with creating menu pages when using graphical displays suppor
 
 
 ### First
- - If you use the __Arduino IDE__, you will need to change the file `User_Setup.h` library [TFT_eSPI] after installing it.  See here for an excellent [tutorial].
- - If you use the __Arduino IDE__, you will need to change the file `User_Setup.h` after downloading the library.
+ - If you use the __Arduino IDE__, after installing the library [TFT_eSPI] you will need to change the file `User_Setup.h`.  See here for an excellent [tutorial].
  - If you use the __Platform io__, you do not need to change the file `User_Setup.h` but instead you will need to add these build settings to the project `platformio.ini` file in your project folder.
  ```
     build_flags =
