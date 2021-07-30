@@ -1,7 +1,8 @@
 #ifndef DISPLAYMENU_H
 #define DISPLAYMENU_H
 
-#include "arduino.h"
+
+#include <Arduino.h>
 #include <FS.h>
 #include <SPI.h>
 #include <TFT_eSPI.h> // Hardware-specific library

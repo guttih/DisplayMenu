@@ -1,6 +1,7 @@
 #ifndef DISPLAYPAGE_H
 #define DISPLAYPAGE_H
-#include "arduino.h"
+
+#include <Arduino.h>
 
 #include <FS.h>
 

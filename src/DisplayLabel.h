@@ -1,7 +1,8 @@
 #ifndef DISPLAYLABEL_H
 #define DISPLAYLABEL_H
 
-#include "arduino.h"
+
+#include <Arduino.h>
 
 #include <FS.h>
 
