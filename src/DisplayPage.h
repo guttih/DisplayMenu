@@ -169,8 +169,6 @@ public:
     void drawTouchButtonsState();
     void serialPrintValues(unsigned int margin = 0);
 
-    TFT_eSPI *getTft() { return _tft; };
-    
     DisplayMenu *getMenu() { return _pMenu; };
     uint16_t getFillColor() { return _fillColor; };
 
