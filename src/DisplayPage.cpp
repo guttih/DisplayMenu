@@ -187,10 +187,16 @@ void DisplayPage::show() {
     draw(true);
 }
 
-DisplayButton *DisplayPage::getButton(int buttonIndex)
+DisplayButton *DisplayPage::getButton(int index)
 {
-    return buttons.get(buttonIndex);
+    return buttons.get(index);
 }
+
+DisplayLabel *DisplayPage::getLabel(int index)
+{
+    return labels.get(index);
+}
+
 
 DisplayButton *DisplayPage::getPressedButton(uint16_t x, uint16_t y){
     

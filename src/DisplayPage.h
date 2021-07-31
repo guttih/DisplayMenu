@@ -144,11 +144,20 @@ public:
     /**
      * @brief Get a pointer to a specific button stored in the page.
      * 
-     * @param buttonIndex Index of the button to get.
+     * @param index Index of the button to get.
      * @return DisplayButton* 
      * @return if no button is found at the given index NULL is returned.
      */
-    DisplayButton* getButton(int buttonIndex);
+    DisplayButton* getButton(int index);
+
+    /**
+     * @brief Get a pointer to a specific label stored in the page.
+     * 
+     * @param index 
+     * @return DisplayLabel* 
+     * @return if no label is found at the given index NULL is returned.
+     */
+    DisplayLabel* getLabel(int index);
 
     /**
      * @brief Searches for a button by the button text
@@ -172,7 +181,19 @@ public:
     DisplayMenu *getMenu() { return _pMenu; };
     uint16_t getFillColor() { return _fillColor; };
 
+    
+    /**
+     * @brief Get the Last Button added to this page
+     * 
+     * @return DisplayButton* 
+     */
     DisplayButton * getLastButton();
+
+    /**
+     * @brief Get the Last Label added to this page
+     * 
+     * @return DisplayLabel* 
+     */
     DisplayLabel *getLastLabel();
 
     /**

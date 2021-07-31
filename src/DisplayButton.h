@@ -84,7 +84,14 @@ public:
     bool  _currentState, 
           _lastState; 
     String getText() { return _values.text; };
-    void setText(String newText) { _values.text = newText; };
+
+    /**
+     * @brief Set the Text of the button
+     * 
+     * @param newText New text to be set
+     * @param drawScreenNow Should the screen be udpdated right away?
+     */
+    void setText(String newText, bool drawScreenNow = false);
     void setLinkToValue(double *pLinkedValue, String valueName);
     
     double *getLinkedValue() { return _values.pLinkedValue; };
