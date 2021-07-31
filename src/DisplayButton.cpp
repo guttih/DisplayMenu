@@ -248,7 +248,7 @@ void DisplayButton::setLinkToValue(double *pLinkedValue, String valueName) {
     _values.linkedValueName = valueName; 
 };
 
-void DisplayButton::setText(String newText, bool drawScreenNow = false)
+void DisplayButton::setText(String newText, bool drawScreenNow)
 {
     _values.text = newText;
     if (drawScreenNow)

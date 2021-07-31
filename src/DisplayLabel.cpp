@@ -176,7 +176,7 @@ void DisplayLabel::setLinkToValue(double *pLinkedValue, String valueName) {
     _values.linkedValueName = valueName; 
 };
 
-void DisplayLabel::setText(String newText, bool drawScreenNow = false)
+void DisplayLabel::setText(String newText, bool drawScreenNow)
 {
     _values.text = newText;
     if (drawScreenNow)
