@@ -1,20 +1,91 @@
 #######################################
-# Syntax Coloring Map For Arduino_JSON
+# Syntax Coloring Map For DisplayMenu #
 ####################################### 
-# Class
+# Class & DataTypes                   #
 #######################################
 
-DisplayMenu KEYWORD1
-DisplayPage KEYWORD1
-DisplayButton   KEYWORD1
-DisplayLabel    KEYWORD1
+# Classes
+DisplayMenu	KEYWORD1
+DisplayPage	KEYWORD1
+DisplayButton	KEYWORD1
+DisplayLabel	KEYWORD1
+
+# DataTypes
+OnShowDisplayPage	KEYWORD1
+OnDrawDisplayPage	KEYWORD1
+ButtonPressedFunction	KEYWORD1
+OnDrawDisplayButton	KEYWORD1
+OnDrawDisplayLabel	KEYWORD1
+DISPLAY_LABEL_VALUES	KEYWORD1
+DisplayButtonType	KEYWORD1
+DISPLAY_BUTTON_VALUES	KEYWORD1
+DisplayState	KEYWORD1
+TOUCHED_STRUCT KEYWORD1
 
 #######################################
-# Methods and Functions 
+# Methods and Functions               #
 #######################################	
 
+#-------------------------
+#- DisplayMenu functions -
+#-------------------------
 update	KEYWORD2
+addPage	KEYWORD2
+getPage	KEYWORD2
+showPage	KEYWORD2
+getVisablePage	KEYWORD2
+getVisablePageIndex	KEYWORD2
+getLastPage	KEYWORD2
+
+#-------------------------
+#- DisplayPage functions -
+#-------------------------
+getDisplay	KEYWORD2
+addFunctionButton	KEYWORD2
+addPageButton	KEYWORD2
+addIncrementButton	KEYWORD2
+addPageLabel	KEYWORD2
+getButton	KEYWORD2
+getButtonByText	KEYWORD2
+getPressedButton	KEYWORD2
+drawTouchButtonsState	KEYWORD2
+serialPrintValues	KEYWORD2
+getMenu	KEYWORD2
+getFillColor	KEYWORD2
+getLastButton	KEYWORD2
+getLastLabel	KEYWORD2
+registerOnDrawEvent	KEYWORD2
+registerOnShowEvent	KEYWORD2
+
+#------------------------------------------
+#- DisplayButton & DisplayLabel functions -
+#------------------------------------------
+getText	KEYWORD2
+setText	KEYWORD2
+setLinkToValue	KEYWORD2
+getLinkedValue	KEYWORD2
+getLinkedValueName	KEYWORD2
+setPageToOpen	KEYWORD2
+getPageToOpen	KEYWORD2
+setDatum	KEYWORD2
+setState	KEYWORD2
+show	KEYWORD2
+hide	KEYWORD2
+resetPressState	KEYWORD2
+draw	KEYWORD2
+registerOnDrawEvent	KEYWORD2
+contains	KEYWORD2
+serialPrintValues	KEYWORD2
+press	KEYWORD2
+isPressed	KEYWORD2
+justPressed	KEYWORD2
+justReleased	KEYWORD2
+executeCommand	KEYWORD2
+getPage	KEYWORD2
+
 
 #######################################
 # Constants
 #######################################
+VISABLE LITERAL1
+HIDDEN LITERAL1
