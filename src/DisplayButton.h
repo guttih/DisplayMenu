@@ -151,6 +151,9 @@ public:
     void registerOnDrawEvent(OnDrawDisplayButton pOnDrawDisplayButton) {
         _values.onDrawDisplayButton = pOnDrawDisplayButton;
     }
+    void registerOnButtonPressedEvent(ButtonPressedFunction buttonPressed) {
+        _values.buttonPressedFunction = buttonPressed;
+    }
     bool contains(int16_t x, int16_t y);
 
     void serialPrintValues(unsigned int margin=0);
