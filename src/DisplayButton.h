@@ -144,10 +144,10 @@ public:
      * @brief draws the button on to the screen
      * 
      * @param inverted Should the button colors be drawn inverted
-     * @param checkIfPageIsVisable should the draw be canceled if the page this button belongs to is hidden.
+     * @param cancelDrawIfPageIsNotVisable should the draw be canceled if the page this button belongs to is hidden.
      * Node if you need more speed this variable should be false;
      */
-    void draw(bool inverted=false,  bool checkIfPageIsVisable = true);
+    void draw(bool inverted=false,  bool cancelDrawIfPageIsNotVisable = true);
     void registerOnDrawEvent(OnDrawDisplayButton pOnDrawDisplayButton) {
         _values.onDrawDisplayButton = pOnDrawDisplayButton;
     }
