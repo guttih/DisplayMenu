@@ -121,27 +121,6 @@ DisplayLabel *DisplayPage::addPageLabel(int16_t x,
     return NULL;
 }
 
-void DisplayPage::serialPrintValues(unsigned int margin)
-{
-
-    int buttonCount = this->buttonCount();
-
-    for (int x = 0; x < margin; x++) Serial.print(" ");
-
-    Serial.print("_tft=");Serial.print((unsigned long)this->_tft, HEX);Serial.print(", ");
-    Serial.print("buttonCount=");Serial.print(buttonCount);
-    Serial.print(", ");Serial.println("buttons:");
-
-    for (int i = 0; i < buttonCount; i++)
-    {
-        DisplayButton *btn = buttons.get(i);
-        for (int x = 0; x < margin; x++) Serial.print(" ");
-        Serial.print("    ");Serial.print(i); Serial.print(" -> ");
-        Serial.print("address:"); Serial.print((unsigned long)btn, HEX); Serial.print(", ");
-        btn->serialPrintValues();
-    }
-}
-
 void DisplayPage::drawButtons()
 {
     int count = buttonCount();
@@ -237,7 +216,6 @@ DisplayLabel *DisplayPage::getLastLabel()
     return labels.get(size - 1);
 }
 
-// todo:remove is this function needed???
 void DisplayPage::drawTouchButtonsState() { 
 
      int buttonCount = this->buttonCount();

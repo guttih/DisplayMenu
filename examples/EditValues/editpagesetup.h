@@ -257,7 +257,7 @@ void addPageEditValue(DisplayMenu *pMenu)
     DisplayButton *btn = pPage->addFunctionButton(10, 1, 300, buttonHeight, TFT_BUTTON_OUTLINE, pPage->getDisplay()->color565(25, 25, 25), TFT_BUTTON_TEXT, 1, "0", NULL);
 
     btn->setPageToOpen(pPage->getMenu()->getPage(0));
-    btn->setDatum(MR_DATUM, 140, 3);
+    btn->setTextAlign(ALIGN_RIGHT, 20, 3);
     pPage->registerOnDrawEvent(onDrawEditValuePage);
     pPage->registerOnShowEvent(onShowEditValuePage);
 }

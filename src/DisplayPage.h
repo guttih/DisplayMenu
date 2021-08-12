@@ -176,8 +176,6 @@ public:
 
     DisplayButton *getPressedButton(uint16_t x, uint16_t y);
     void drawTouchButtonsState();
-    void serialPrintValues(unsigned int margin = 0);
-
     DisplayMenu *getMenu() { return _pMenu; };
     uint16_t getFillColor() { return _fillColor; };
 
@@ -206,11 +204,11 @@ public:
      * TFT_eSPI tft = TFT_eSPI();
      * void myCustomPageDrawFunc(DisplayPage *pPage)
      * {
-     *     pPage->serialPrintValues();
+     *  Serial.println("doing stuff");
      * }
      * 
      
-     * void ssetup()
+     * void setup()
      * {
      *     DisplayPage page1(&tft);
      *     page1.registerOnDrawEvent(myCustomPageDrawFunc);

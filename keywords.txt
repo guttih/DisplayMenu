@@ -49,7 +49,6 @@ getButton	KEYWORD2
 getButtonByText	KEYWORD2
 getPressedButton	KEYWORD2
 drawTouchButtonsState	KEYWORD2
-serialPrintValues	KEYWORD2
 getMenu	KEYWORD2
 getFillColor	KEYWORD2
 getLastButton	KEYWORD2
@@ -75,7 +74,6 @@ resetPressState	KEYWORD2
 draw	KEYWORD2
 registerOnDrawEvent	KEYWORD2
 contains	KEYWORD2
-serialPrintValues	KEYWORD2
 press	KEYWORD2
 isPressed	KEYWORD2
 justPressed	KEYWORD2

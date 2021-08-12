@@ -158,7 +158,7 @@ void addPageValves()
     const int w = 100;
     pTempShowButton = pPage->addFunctionButton(((tft.width() - w) / 2), 210, 100, 20, pPage->getFillColor(), pPage->getFillColor(), TFT_GOLD, 1, NULL, showPageEditTemperature);
     pTempShowButton->setLinkToValue(&globalTemperature, "value missing!");
-    pTempShowButton->setDatum(MC_DATUM, 0, 0);
+    pTempShowButton->setTextAlign(ALIGN_CENTER, 0, 0);
     pTempShowButton->registerOnDrawEvent(onDrawTemperatureButton);
 }
 
@@ -187,7 +187,7 @@ void setupMenu()
     pPage->addFunctionButton(x, buttonMargin + 1 * (buttonMargin + buttonHeight), buttonWidth, buttonHeight, TFT_BUTTON_OUTLINE, TFT_BUTTON_FILL, TFT_BUTTON_TEXT, 1, "Edit double", showPageEditGlobalDouble);
     pPage->addFunctionButton(x, buttonMargin + 2 * (buttonMargin + buttonHeight), buttonWidth, buttonHeight, TFT_BUTTON_OUTLINE, TFT_BUTTON_FILL, TFT_BUTTON_TEXT, 1, "Edit long", showPageEditGlobalLong);
 
-    menu.showPage(1);
+    menu.showPage(1);//TODO: SET BACK TO SHOWPAGE 1
     allowMinus = true;
     allowDouble = false;
 }

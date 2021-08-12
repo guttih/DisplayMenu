@@ -30,7 +30,7 @@ struct DISPLAY_LABEL_VALUES {
     uint16_t fillColor;
     uint16_t textColor;
     uint8_t textsize;
-    uint8_t textDatum;
+    TextAlign textAlign;
     uint8_t radius;
     String text;
     DisplayState state;
@@ -78,7 +78,7 @@ public:
     
     double *getLinkedValue() { return _values.pLinkedValue; };
     String getLinkedValueName() { return _values.linkedValueName; };
-    void setDatum(uint8_t textDatum, int16_t xDatumOffset, int16_t yDatumOffset) { _values.textDatum = textDatum; _values.xDatumOffset = xDatumOffset; _values.yDatumOffset = yDatumOffset; };
+    void setTextAlign(TextAlign textAlign, int16_t xDatumOffset, int16_t yDatumOffset) { _values.textAlign = textAlign; _values.xDatumOffset = xDatumOffset; _values.yDatumOffset = yDatumOffset; };
     void setState(DisplayState state) { _values.state = state; };
     void show() { _values.state = DisplayState::VISABLE; };
     void hide() { _values.state = DisplayState::HIDDEN; };
@@ -127,8 +127,6 @@ public:
     void registerOnDrawEvent(OnDrawDisplayLabel pOnDrawDisplayLabel) {
         _values.onDrawDisplayLabel = pOnDrawDisplayLabel;
     }
-
-    void serialPrintValues(unsigned int margin=0);
 
     DisplayPage *getPage() { return _values.pPage; }
 };

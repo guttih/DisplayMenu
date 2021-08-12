@@ -29,13 +29,17 @@ void setup()
 
   touch_calibrate();
   DisplayPage *pMainMenu, *pSecondMenu, *pThirdMenu;
+  DisplayLabel *pLabel;
   pMainMenu   = menu.addPage();   //adding page at index 0
   pSecondMenu = menu.addPage();   //adding page at index 1
   pThirdMenu  = menu.addPage();   //adding page at index 2
 
   // Adding labels to pages
-  pMainMenu->addPageLabel(centerHorizontal, 0, buttonWidth, buttonHeight, pMainMenu->getFillColor(), pMainMenu->getFillColor(), TFT_YELLOW, 1, "Main menu");
-  pMainMenu->addPageLabel(centerHorizontal, tft.height()-buttonHeight, buttonWidth, buttonHeight, pMainMenu->getFillColor(), pMainMenu->getFillColor(), TFT_ORANGE, 1, "Hello world demo");
+  pLabel = pMainMenu->addPageLabel(centerHorizontal, 0, buttonWidth, buttonHeight, pMainMenu->getFillColor(), pMainMenu->getFillColor(), TFT_YELLOW, 1, "Main menu");
+  pLabel->setTextAlign(ALIGN_CENTER, 0, 0);
+
+  pLabel = pMainMenu->addPageLabel(centerHorizontal, tft.height()-buttonHeight, buttonWidth, buttonHeight, pMainMenu->getFillColor(), pMainMenu->getFillColor(), TFT_ORANGE, 1, "Hello world demo");
+  pLabel->setTextAlign(ALIGN_CENTER, 0, 0);
   pSecondMenu->addPageLabel(centerHorizontal, 0, buttonWidth, buttonHeight, pMainMenu->getFillColor(), pMainMenu->getFillColor(), TFT_YELLOW, 1, "Page 1");
   //You can also get a page by page index like this
   menu.getPage(2)->addPageLabel(centerHorizontal, 0, buttonWidth, buttonHeight, pMainMenu->getFillColor(), pMainMenu->getFillColor(), TFT_YELLOW, 1, "Page 2");

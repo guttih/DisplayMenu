@@ -53,26 +53,6 @@ DisplayButton::DisplayButton(const DisplayButton &button)
          button._values.incrementValue, button._values.pPageToOpen    , button._values.buttonPressedFunction);
 }
 
-void DisplayButton::serialPrintValues(unsigned int margin)
-{
-    for(int i = 0; i<margin; i++) 
-        Serial.print(" "); 
-
-    Serial.print("x:");              Serial.print(_values.x);
-    Serial.print(", y:");            Serial.print(_values.y);
-    Serial.print(", width:");        Serial.print(_values.width);
-        Serial.print(", height:");   Serial.print(_values.height);
-    Serial.print(", outlineColor:"); Serial.print(_values.outlineColor);   
-    Serial.print(", fillColor:");    Serial.print(_values.fillColor, HEX); 
-    Serial.print(", textColor:");    Serial.print(_values.textColor, HEX);
-    Serial.print(", text:");         Serial.print(_values.text);
-    Serial.print(", textsize:");     Serial.print(_values.textsize);
-    Serial.print(", radius:");       Serial.print(_values.radius);
-    Serial.print(", textDatum:");    Serial.print(_values.textDatum);
-    Serial.print(",tft:");           Serial.print((unsigned long)_values.tft, HEX);
-    Serial.println();
-}
-
 void DisplayButton::init(   TFT_eSPI *tft, 
                             int16_t x, 
                             int16_t y, 
@@ -115,9 +95,9 @@ void DisplayButton::init(   TFT_eSPI *tft,
 
     //defaults
     _values.radius = min(width, height) / 6; // Corner radius
-    _values.textDatum = MC_DATUM;
+    _values.textAlign = ALIGN_CENTER;
     _values.xDatumOffset = 0;
-    _values.yDatumOffset = 2;
+    _values.yDatumOffset = -4;
     _values.onDrawDisplayButton = NULL;
     _values.allowOnlyOneButtonPressedAtATime = type == OPEN_PAGE || type == RUN_FUNCTION? true: false;
 }
@@ -161,8 +141,22 @@ void DisplayButton::draw(bool inverted, bool cancelDrawIfPageIsNotVisable)
         textColor = _values.fillColor;
     }
 
-    _values.tft->fillRoundRect(_values.x, _values.y, _values.width, _values.height, _values.radius, fillColor);
-    _values.tft->drawRoundRect(_values.x, _values.y, _values.width, _values.height, _values.radius, outlineColor);
+    int32_t x, xText, y, yText;
+    x = xText = _values.x;
+    y = yText = _values.y;
+    
+    //X calc
+    int16_t textWidth = _values.tft->textWidth(_values.text);
+    if (_values.textAlign == ALIGN_CENTER)
+    {
+        xText = _values.x + ((_values.width - textWidth) / 2) + _values.xDatumOffset;
+    } else if (_values.textAlign == ALIGN_RIGHT)
+    {
+        xText = x + (_values.width - textWidth) - _values.xDatumOffset;
+    } 
+
+    //Y calc
+    yText = _values.y + (_values.height / 2) + _values.yDatumOffset;
 
     uint16_t before_color = _values.tft->textcolor;
     uint8_t  before_textSize = _values.tft->textsize;
@@ -171,10 +165,14 @@ void DisplayButton::draw(bool inverted, bool cancelDrawIfPageIsNotVisable)
 
     _values.tft->setTextColor(textColor);
     _values.tft->setTextSize(_values.textsize);
-    _values.tft->setTextDatum(_values.textDatum);
+    //Going to calculate everything from ML
+    _values.tft->setTextDatum(ML_DATUM);
     _values.tft->setTextPadding(0);
 
-    _values.tft->drawString(_values.text, _values.x + (_values.width/2) + _values.xDatumOffset, _values.y + (_values.height/2) - 4 + _values.yDatumOffset);
+    _values.tft->fillRoundRect(x, y, _values.width, _values.height, _values.radius, fillColor);
+    _values.tft->drawRoundRect(x, y, _values.width, _values.height, _values.radius, outlineColor);
+
+    _values.tft->drawString(_values.text, xText, yText);
 
     _values.tft->setTextColor(before_color);
     _values.tft->setTextSize(before_textSize);
