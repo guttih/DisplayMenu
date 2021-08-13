@@ -1,3 +1,13 @@
+/**
+ * @file EditValues.ino
+ * @author guttih (gudjonholm@gmail.com)
+ * @brief A program that creates a menu with three pages.
+ * @version 0.1
+ * @date 2021-08-13
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 
 #include <Arduino.h>
 
