@@ -78,7 +78,8 @@ private:
                 double *pLinkedValue,
                 double incrementValue,
                 DisplayPage *pageToOpen,
-                ButtonPressedFunction buttonPressedFunction
+                ButtonPressedFunction buttonPressedFunction,
+                TextAlign textAlign = ALIGN_CENTER
                 );
 public:
     bool  _currentState, 
@@ -98,7 +99,7 @@ public:
     String getLinkedValueName() { return _values.linkedValueName; };
     void setPageToOpen(DisplayPage *pageToOpen) { _values.pPageToOpen = pageToOpen; };
     DisplayPage *getPageToOpen() { return _values.pPageToOpen; };
-    void setTextAlign(TextAlign textAlign, int16_t xDatumOffset, int16_t yDatumOffset) { _values.textAlign = textAlign; _values.xDatumOffset = xDatumOffset; _values.yDatumOffset = yDatumOffset; };
+    void setTextAlign(TextAlign textAlign, int16_t xDatumOffset = 0, int16_t yDatumOffset = 0);
     void setState(DisplayState state) { _values.state = state; };
     void show() { _values.state = DisplayState::VISABLE; };
     void hide() { _values.state = DisplayState::HIDDEN; };

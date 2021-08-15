@@ -50,7 +50,8 @@ DisplayButton::DisplayButton(const DisplayButton &button)
          button._values.fillColor     , button._values.textColor      , button._values.textsize,
          button._values.text.c_str()  , button._values.type           , button._values.state,
          button._values.pPage         , button._values.linkedValueName, button._values.pLinkedValue, 
-         button._values.incrementValue, button._values.pPageToOpen    , button._values.buttonPressedFunction);
+         button._values.incrementValue, button._values.pPageToOpen    , button._values.buttonPressedFunction,
+         button._values.textAlign);
 }
 
 void DisplayButton::init(   TFT_eSPI *tft, 
@@ -70,7 +71,8 @@ void DisplayButton::init(   TFT_eSPI *tft,
                             double *pLinkedValue,
                             double incrementValue,
                             DisplayPage *pPageToOpen,
-                            ButtonPressedFunction buttonPressedFunction
+                            ButtonPressedFunction buttonPressedFunction,
+                            TextAlign textAlign
                             )
 {
 
@@ -95,7 +97,7 @@ void DisplayButton::init(   TFT_eSPI *tft,
 
     //defaults
     _values.radius = min(width, height) / 6; // Corner radius
-    _values.textAlign = ALIGN_CENTER;
+    _values.textAlign = textAlign;
     _values.xDatumOffset = 0;
     _values.yDatumOffset = -4;
     _values.onDrawDisplayButton = NULL;
@@ -251,4 +253,11 @@ void DisplayButton::setText(String newText, bool drawScreenNow)
     _values.text = newText;
     if (drawScreenNow)
         draw();
+};
+
+void DisplayButton::setTextAlign(TextAlign textAlign, int16_t xDatumOffset, int16_t yDatumOffset)
+{
+    _values.textAlign = textAlign;
+    _values.xDatumOffset = xDatumOffset;
+    _values.yDatumOffset = yDatumOffset;
 };

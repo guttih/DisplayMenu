@@ -45,7 +45,8 @@ DisplayLabel::DisplayLabel(const DisplayLabel &label)
          label._values.width         , label._values.height         , label._values.outlineColor,
          label._values.fillColor     , label._values.textColor      , label._values.textsize,
          label._values.text.c_str()  , label._values.state          , label._values.pPage,
-         label._values.linkedValueName, label._values.pLinkedValue  , label._values.incrementValue);
+         label._values.linkedValueName, label._values.pLinkedValue  , label._values.incrementValue,
+         label._values.textAlign);
 }
 
 void DisplayLabel::init(   TFT_eSPI *tft, 
@@ -62,7 +63,8 @@ void DisplayLabel::init(   TFT_eSPI *tft,
                             DisplayPage *page,
                             String linkedValueName,
                             double *pLinkedValue,
-                            double incrementValue
+                            double incrementValue,
+                            TextAlign textAlign
                             )
 {
 
@@ -84,7 +86,7 @@ void DisplayLabel::init(   TFT_eSPI *tft,
 
     //defaults
     _values.radius = 0;
-    _values.textAlign = ALIGN_LEFT;
+    _values.textAlign = textAlign;
     _values.xDatumOffset = 0;
     _values.yDatumOffset = -4;
     _values.onDrawDisplayLabel = NULL;
@@ -179,4 +181,11 @@ void DisplayLabel::setText(String newText, bool drawScreenNow)
     _values.text = newText;
     if (drawScreenNow)
         draw();
+};
+
+void DisplayLabel::setTextAlign(TextAlign textAlign, int16_t xDatumOffset, int16_t yDatumOffset)
+{
+    _values.textAlign = textAlign;
+    _values.xDatumOffset = xDatumOffset;
+    _values.yDatumOffset = yDatumOffset;
 };

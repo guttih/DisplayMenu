@@ -55,11 +55,13 @@ DisplayButton *DisplayPage::addPageButton(int16_t x,
                             uint16_t textColor,
                             uint8_t textsize, 
                             const char *text,
-                            DisplayPage *pPageToOpen
+                            DisplayPage *pPageToOpen,
+                            TextAlign textAlign
                             )
 {
 
     DisplayButton pageButton(getDisplay(), x, y, width, height, outlineColor, fillColor, textColor, textsize, text, DisplayButtonType::OPEN_PAGE, this, pPageToOpen, NULL);
+    pageButton.setTextAlign(textAlign);
     
     if (buttons.add(pageButton))
         return getLastButton();
@@ -113,9 +115,11 @@ DisplayLabel *DisplayPage::addPageLabel(int16_t x,
                                          uint16_t fillColor,
                                          uint16_t textColor,
                                          uint8_t textsize,
-                                         const char *text)
+                                         const char *text, 
+                                         TextAlign textAlign)
 {
     DisplayLabel pageLabel(getDisplay(), x, y, width, height, outlineColor, fillColor, textColor, textsize, text, this);
+    pageLabel.setTextAlign(textAlign);
         if (labels.add(pageLabel))
         return getLastLabel();
     return NULL;

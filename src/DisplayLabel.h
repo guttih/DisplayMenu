@@ -59,7 +59,8 @@ private:
                 DisplayPage *page,
                 String linkedValueName,
                 double *pLinkedValue,
-                double incrementValue
+                double incrementValue,
+                TextAlign textAlign = ALIGN_LEFT
                 );
 public:
     bool  _currentState, 
@@ -78,7 +79,7 @@ public:
     
     double *getLinkedValue() { return _values.pLinkedValue; };
     String getLinkedValueName() { return _values.linkedValueName; };
-    void setTextAlign(TextAlign textAlign, int16_t xDatumOffset, int16_t yDatumOffset) { _values.textAlign = textAlign; _values.xDatumOffset = xDatumOffset; _values.yDatumOffset = yDatumOffset; };
+    void setTextAlign(TextAlign textAlign, int16_t xDatumOffset = 0, int16_t yDatumOffset = 0);
     void setState(DisplayState state) { _values.state = state; };
     void show() { _values.state = DisplayState::VISABLE; };
     void hide() { _values.state = DisplayState::HIDDEN; };

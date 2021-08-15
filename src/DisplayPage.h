@@ -99,7 +99,8 @@ public:
                     uint16_t textColor,
                     uint8_t textsize, 
                     const char *text,
-                    DisplayPage *pPageToOpen
+                    DisplayPage *pPageToOpen,
+                    TextAlign TextAlign = ALIGN_CENTER
                     );
 
     /**
@@ -140,7 +141,8 @@ public:
                                 uint16_t fillColor,
                                 uint16_t textColor,
                                 uint8_t textsize, 
-                                const char *text);
+                                const char *text,
+                                TextAlign TextAlign = ALIGN_LEFT);
     /**
      * @brief Get a pointer to a specific button stored in the page.
      * 
