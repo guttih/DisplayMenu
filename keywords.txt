@@ -66,7 +66,7 @@ getLinkedValue	KEYWORD2
 getLinkedValueName	KEYWORD2
 setPageToOpen	KEYWORD2
 getPageToOpen	KEYWORD2
-setDatum	KEYWORD2
+setTextAlign	KEYWORD2
 setState	KEYWORD2
 show	KEYWORD2
 hide	KEYWORD2

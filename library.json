@@ -1,9 +1,9 @@
   
 {
     "name": "DisplayMenu",
-    "version": "0.9.2",
+    "version": "1.0.0",
     "keywords": "Arduino, tft, graphical, display, menu, ePaper, display, Pico, RP2040, STM32, ESP8266, NodeMCU, ESP32, M5Stack, ILI9341, ST7735, ILI9163, S6D02A1, ILI9481, ILI9486, ILI9488, ST7789, RM68140, SSD1351, SSD1963, ILI9225, HX8357D",
-    "description": "Create with ease menu and pages on a graphical display supported by the TFT_eSPI library.",
+    "description": "Create menu and pages with ease on a graphical display supported by the TFT_eSPI library.",
     "repository":
     {
       "type": "git",
