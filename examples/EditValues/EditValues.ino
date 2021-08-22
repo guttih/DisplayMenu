@@ -33,6 +33,9 @@ struct GLOBAL_STRUCT {
 
 #define CALIBRATION_FILE "/TouchCalData3"
 
+
+const bool invertColors = false;
+
 #define REPEAT_CAL true
 
 TFT_eSPI tft = TFT_eSPI();
@@ -50,8 +53,14 @@ unsigned long updateTempTimer = 0;
 void setup()
 {
   Serial.begin(115200);
+
+  if (tft.width() >= 480)
+    tft.setRotation(0);  
   touch_calibrate();
+  
+  menu.invertColors(invertColors);
   setupMenu();
+  menu.showPage(1);
   updateTempTimer = millis() + 10;
 }
 
@@ -106,6 +115,7 @@ void touch_calibrate()
   }
   else
   {
+    tft.invertDisplay(false);
     // data not valid so recalibrate
     tft.fillScreen(TFT_BLACK);
     tft.setCursor(20, 0);

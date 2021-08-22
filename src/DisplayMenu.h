@@ -31,6 +31,7 @@ private:
     void init(TFT_eSPI *tft, uint16_t fillColor);
     
 public:
+    void invertColors(bool invert) { _tft->invertDisplay(invert); }
     DisplayMenu(TFT_eSPI *tft, uint16_t fillColor = TFT_BLACK);
     DisplayPage * addPage();
     DisplayPage * addPage(uint16_t fillColor);
